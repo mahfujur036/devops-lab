@@ -1,13 +1,13 @@
-FROM python:3.11.15-trixie
+FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN useradd app
-
-COPY . .
-
+COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
+COPY app.py .
+
+RUN useradd app
 USER app
 
 ENTRYPOINT ["python3"]
