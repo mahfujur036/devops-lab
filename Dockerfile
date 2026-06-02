@@ -7,7 +7,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY app.py .
 
-RUN adduser app
+RUN adduser --disabled-password --gecos '' app
 USER app
 
 ENTRYPOINT ["python3"]
